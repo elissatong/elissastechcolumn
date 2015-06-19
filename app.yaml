@@ -1,0 +1,33 @@
+application: helloworld
+version: 1
+runtime: php55
+api_version: 1
+
+handlers:
+# Serve the stylesheets
+- url: /css
+  static_dir: css
+  
+# Serve the images
+- url: /img
+  static_dir: img
+  
+# Serve the less files
+- url: /less
+  static_dir: less
+  
+# Serve the JavaScript files
+- url: /js
+  static_dir: js
+  
+# Serve the FontAwesome files
+- url: /font-awesome
+  static_dir: font-awesome
+  
+# Serve the font files
+- url: /fonts
+  static_dir: fonts
+  
+- url: /.*
+  script: index.html
+  
