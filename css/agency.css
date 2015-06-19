@@ -544,6 +544,10 @@ section h3.section-subheading {
     background-color: #fed136;
 }
 
+.timeline>li .timeline-image:hover {
+	border: 7px solid #fed136;
+}
+
 .timeline>li .timeline-image h4 {
     margin-top: 12px;
     font-size: 10px;
@@ -586,6 +590,7 @@ section h3.section-subheading {
 .timeline .timeline-body>ul {
     margin-bottom: 0;
 }
+
 
 @media(min-width:768px) {
     .timeline:before {
