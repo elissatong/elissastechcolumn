@@ -25,6 +25,9 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+	<!-- Parse Analytics -->
+	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -563,6 +566,19 @@
 	</div>
 	</section>
 
+	<div style="display:none" class="error">
+      Looks like there was a problem saving the test object. Make sure you've set your application ID and javascript key correctly in the call to <code>Parse.initialize</code> in this file.
+    </div>
+	<div style="display:none" class="success">
+      <p>We've also just created your first object using the following code:</p>
+      
+        <code>
+          var TestObject = Parse.Object.extend("TestObject");<br/>
+          var testObject = new TestObject();<br/>
+          testObject.save({foo: "bar"});
+        </code>
+    </div>
+    
     <footer>
         <div class="container">
             <div class="row">
@@ -621,6 +637,20 @@
 			template: '<a href="{{link}}" target="_blank"><img src="{{image}}" style="padding:5px" data-toggle="tooltip" title="{{caption}}" class="tooltip-style"/></a>'
 		});
 		userFeed.run();
+	
+		Parse.initialize("YtwfCQjj1cYI1eoAbHb2qcOTsotLhgLVf1cGYX9v", "rWiuBQAIQnMWETePooWo2idprOA0hwOkk7xJgJNf");
+	
+		var TestObject = Parse.Object.extend("TestObject");
+		var testObject = new TestObject();
+		  testObject.save({foo: "bar"}, {
+		  success: function(object) {
+			$(".success").show();
+		  },
+		  error: function(model, error) {
+			$(".error").show();
+		  }
+		});
+		Parse.Analytics.track('test', 'portfolio')
 	</script>
 
 </body>
