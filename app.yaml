@@ -1,5 +1,4 @@
-application: helloworld
-version: 1
+application: elissastechcolumn
 runtime: php55
 api_version: 1
 
@@ -34,3 +33,9 @@ handlers:
 - url: /.*
   script: index.html
   
+# - url: /(.+)\.html
+#  static_dir: *.html
+  
+- url: /(.*)\.html$
+  static_files: \1.html
+  upload: /*\.html$
